@@ -98,7 +98,7 @@ export default connect()(
             </tr>
           </table>
           <div>
-            <button>Siguiente</button>
+            <button>Cerrar sesión</button>
           </div>
         </div>
       );
