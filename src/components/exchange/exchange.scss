@@ -1,0 +1,91 @@
+@import "../../index.scss";
+
+#exchange {
+  @include flexbox($jc: flex-start, $ai: center, $dir: column);
+  width: 100%;
+  max-width: 100%;
+
+  .row {
+    @include flexbox($jc: space-between, $ai: center, $dir: row);
+    width: 100%;
+
+    #card_exchange {
+      @include cards(100%, 30rem, white);
+      justify-content: space-around;
+
+      > div {
+        &:nth-child(1) {
+          @include flexbox($jc: center, $ai: center, $dir: row);
+          > button {
+            @include button($w: 25rem);
+          }
+        }
+        &:nth-child(2) {
+          @include flexbox($jc: center, $ai: center, $dir: row);
+          > div {
+            @include filter($bg: white, $c: $black, $w: 20rem);
+            flex-direction: column;
+            margin: 2rem;
+            > select {
+              border-bottom: 1px solid $black;
+            }
+
+            > p {
+              @include text(
+                $ff: $font2,
+                $fw: unset,
+                $fs: $p,
+                $as: flex-start,
+                $tt: uppercase,
+                $c: $black
+              );
+              margin: 1rem 0 1rem 0;
+
+              &:first-child {
+                @include text(
+                  $ff: $font2,
+                  $fw: bolder,
+                  $fs: $p,
+                  $as: flex-start,
+                  $tt: unset,
+                  $c: $black
+                );
+              }
+              &:last-child {
+                @include text(
+                  $ff: $font2,
+                  $fw: bolder,
+                  $fs: $p,
+                  $as: flex-start,
+                  $tt: unset,
+                  $c: $grey
+                );
+              }
+            }
+          }
+        }
+
+        &:nth-child(3) {
+          width: 30rem;
+          text-align: center;
+          > p {
+            @include text(
+              $ff: $font2,
+              $fw: unset,
+              $fs: $p,
+              $as: center,
+              $tt: unset,
+              $c: $black
+            );
+          }
+        }
+
+        &:nth-child(4) {
+          > button {
+            @include button();
+          }
+        }
+      }
+    }
+  }
+}

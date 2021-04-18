@@ -1,0 +1,87 @@
+@import "../../index.scss";
+
+#navbar {
+  @include flexbox($jc: flex-start);
+  width: 12rem;
+  height: 100vh;
+  background-color: white;
+  position: fixed;
+  z-index: 1;
+  box-shadow: 0 2px 5px 0 $shadow;
+
+  > div {
+    &:nth-child(1) {
+      @include flexbox($jc: flex-start, $ai: center);
+      margin: 2rem 0 3rem 0;
+    
+      > img {
+        width: 13rem;
+        height: 3rem;
+        margin-bottom: .5rem;
+      }
+      > div {
+        @include flexbox($dir: row);
+        > img {
+          width: 1.5rem;
+          height: 1.5rem;
+          border-radius: 50rem;
+        }
+        > p {
+          margin-left: 0.5rem;
+          width: 7rem;
+          color: $black;
+          font-size: $p;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+    &:nth-child(3) {
+      @include flexbox($dir: row);
+      @include filter($bg: white, $c: $black, $w: 7rem);
+      box-shadow: unset;
+      margin-top: 2rem;
+
+      > img {
+        height: 1rem;
+        width: 1rem;
+      }
+    }
+  }
+  > ul {
+    align-self: flex-start;
+    margin: 1rem;
+    > a {
+      > li {
+        margin: 1rem 0.5rem;
+
+        > p {
+          position: relative;
+          color: $black;
+          font-size: $p;
+          align-self: flex-start;
+        }
+
+        > p:after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 2px;
+          display: block;
+          margin-top: 3px;
+          right: 0;
+          background: $primary;
+          transition: width 0.2s ease;
+          -webkit-transition: width 0.2s ease;
+        }
+
+        > p:hover:after {
+          width: 100%;
+          left: 0;
+          background: $primary;
+        }
+      }
+    }
+  }
+}

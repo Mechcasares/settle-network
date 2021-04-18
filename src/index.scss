@@ -1,0 +1,158 @@
+@import "reset";
+
+//FONTS
+
+$font: "Montserrat", sans-serif;
+$font2: "Open Sans", sans-serif;
+$h1: 1.4167rem;
+$h2: 1.25;
+$h3: 1.0833rem;
+$p: 0.8rem;
+
+//COLORS
+
+$primary: #0048fc;
+$secondary: #136ef7;
+$black: #102328;
+$grey: #bcbcbc;
+$disable: #b9b9b9;
+$white: #ececed;
+$shadow: rgba(0, 0, 0, 0.1);
+$red: #fd0e3d;
+$green: #1aaf7a;
+$yellow: #fec048;
+
+//SIZE
+$corner: 0.3rem;
+
+// MIXINS
+
+@mixin flexbox($jc: center, $ai: center, $dir: column) {
+  justify-content: $jc;
+  align-items: $ai;
+
+  @if $dir==row {
+    flex-direction: $dir;
+  }
+}
+
+@mixin text(
+  $fw: bolder,
+  $fs: 2rem,
+  $as: flex-start,
+  $tt: uppercase,
+  $c: $black,
+  $ff: $font
+) {
+  font-family: $ff;
+  font-weight: $fw;
+  font-size: $fs;
+  align-self: $as;
+  text-transform: $tt;
+  color: $c;
+}
+
+@mixin animation($e: all, $t: 0.5s, $d: 0s) {
+  transition: $e $t cubic-bezier(0.8, 0, 0.2, 1) $d;
+}
+
+@mixin button(
+  $h: 2.25rem,
+  $w: 8rem,
+  $c: $black,
+  $bg: $white,
+  $hover_c: $white,
+  $hover_bg: $primary
+) {
+  @include animation();
+  font-size: $p;
+  height: $h;
+  width: $w;
+  color: $c;
+  background-color: $bg;
+  align-items: center;
+  border: none;
+  border-radius: $corner;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  box-shadow: $shadow;
+  a {
+    color: $c;
+  }
+
+  @if $hover_c {
+    &:hover {
+      color: $hover_c;
+      background: $hover_bg;
+      box-shadow: 0 2px 5px 0 $shadow;
+    }
+  }
+}
+
+@mixin secondary_button($b: $white, $bh: $black) {
+  @include button(2.25rem, $primary, $white, $white, $black);
+  border: 0.01rem solid $b;
+  font-size: 0.8rem;
+
+  &:hover {
+    border: 0.01rem solid $bh;
+  }
+}
+
+@mixin filter($bg: $primary, $c: $black, $w: $width) {
+  @include flexbox(center, center, row);
+
+  svg,
+  img {
+    position: relative;
+    right: 0.5rem;
+  }
+
+  select,
+  input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    width: $w;
+    height: 1.7rem;
+    color: $c;
+    font-size: 0.8rem;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Ctitle%3Edown-arrow%3C%2Ftitle%3E%3Cg%20fill%3D%22%23000000%22%3E%3Cpath%20d%3D%22M10.293%2C3.293%2C6%2C7.586%2C1.707%2C3.293A1%2C1%2C0%2C0%2C0%2C.293%2C4.707l5%2C5a1%2C1%2C0%2C0%2C0%2C1.414%2C0l5-5a1%2C1%2C0%2C1%2C0-1.414-1.414Z%22%20fill%3D%22%23000000%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-size: 0.6em;
+    background-position: calc(100% - 0.5em) center;
+    background-repeat: no-repeat;
+  }
+
+  svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: $black;
+    z-index: 1;
+  }
+}
+
+@mixin cards($w, $h, $bc) {
+  @include flexbox($jc: space-between);
+  @extend %shadow;
+  background: $bc;
+  border-radius: $corner;
+  width: $w;
+  max-width: $w;
+  height: $h;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+// EXTENDS
+
+%shadow {
+  box-shadow: 0 2px 5px 0 $shadow;
+}
+
+// GLOBAL STYLES
+
+body {
+  background-color: $white;
+  font-family: $font;
+  font-family: $font2;
+}

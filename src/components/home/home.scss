@@ -1,0 +1,210 @@
+@import "../../index.scss";
+
+#home {
+  @include flexbox($jc: flex-start, $ai: center, $dir: column);
+  width: 100%;
+  max-width: 100%;
+
+  .row {
+    @include flexbox($jc: space-between, $ai: center, $dir: row);
+    width: 100%;
+
+    #card_currency {
+      @include cards(50%, 10rem, white);
+      justify-content: space-around;
+      > div {
+        @include flexbox($jc: center, $ai: center, $dir: row);
+        &:first-child {
+          > img {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 1rem;
+          }
+          > h2 {
+            @include text(
+              $ff: $font,
+              $fw: bolder,
+              $fs: $h2,
+              $as: center,
+              $tt: uppercase,
+              $c: $black
+            );
+            &:last-child {
+              @include text(
+                $ff: $font,
+                $fw: unset,
+                $fs: $h2,
+                $as: center,
+                $tt: uppercase,
+                $c: $black
+              );
+              margin-left: 1rem;
+            }
+          }
+        }
+        &:last-child {
+          > button {
+            @include button(
+              $h: 2.25rem,
+              $c: $black,
+              $bg: $white,
+              $hover_c: $white,
+              $hover_bg: $primary
+            );
+            &:last-child {
+              margin-left: 1rem;
+            }
+          }
+        }
+      }
+    }
+    #card_verification {
+      @include cards(100%, 5rem, white);
+      @include flexbox($jc: center, $ai: center, $dir: row);
+      justify-content: space-between;
+
+      > div {
+        &:first-child {
+          @include flexbox($jc: center, $ai: center, $dir: row);
+          > svg {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 1rem;
+            fill: $red;
+          }
+
+          > h2 {
+            @include text(
+              $fw: bolder,
+              $fs: $h2,
+              $as: center,
+              $tt: unset,
+              $c: $red
+            );
+          }
+        }
+        &:last-child {
+          > button {
+            @include button(
+              $h: 2.25rem,
+              $w: 10rem,
+              $c: $black,
+              $bg: $white,
+              $hover_c: $white,
+              $hover_bg: $primary
+            );
+            &:last-child {
+              margin-left: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    #card_limit {
+      @include cards(100%, 5rem, white);
+      @include flexbox($jc: center, $ai: center, $dir: row);
+      justify-content: space-between;
+
+      > div {
+        @include flexbox($jc: center, $ai: center, $dir: row);
+        align-self: flex-start;
+        > svg {
+          width: 2rem;
+          height: 2rem;
+          margin-right: 1rem;
+          fill: $primary;
+        }
+        > div {
+          line-height: 1.2;
+          > h2 {
+            @include text(
+              $fw: bolder,
+              $fs: $h2,
+              $as: flex-start,
+              $tt: unset,
+              $c: $primary
+            );
+          }
+          > p {
+            @include text(
+              $ff: $font2,
+              $fw: unset,
+              $fs: $p,
+              $as: flex-start,
+              $tt: unset,
+              $c: $black
+            );
+          }
+        }
+      }
+
+      > button {
+        @include button(
+          $h: 2.25rem,
+          $w: 10rem,
+          $c: $black,
+          $bg: $white,
+          $hover_c: $white,
+          $hover_bg: $primary
+        );
+        &:last-child {
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    #card_table {
+      @include cards(100%, 15rem, white);
+      justify-content: space-around;
+      > h2 {
+        @include text(
+          $fw: bolder,
+          $fs: $h2,
+          $as: flex-start,
+          $tt: unset,
+          $c: $black
+        );
+        margin-left: 1rem;
+      }
+      > table {
+        width: 95%;
+        > tr {
+          > td {
+            text-align: start;
+            @include text(
+              $ff: $font2,
+              $fw: unset,
+              $fs: $p,
+              $as: flex-start,
+              $tt: unset,
+              $c: $black
+            );
+          }
+          > td:last-child {
+            text-align: end;
+            @include text(
+              $ff: $font2,
+              $fw: bolder,
+              $fs: $p,
+              $as: flex-end,
+              $tt: unset,
+              $c: $black
+            );
+          }
+        justify-content: flex-end;
+        }
+      }
+    }
+  }
+
+  .row_button {
+    justify-content: center;
+    > button {
+      @include button();
+      box-shadow: unset;
+      margin: 1rem;
+      color: $primary;
+    }
+  }
+}

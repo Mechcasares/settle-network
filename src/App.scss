@@ -1,0 +1,10 @@
+@import "./index.scss";
+
+#App {
+  @include flexbox(flex-start, flex-start, row);
+
+  #main {
+    flex: auto;
+    margin: 1rem 1rem 3rem 13rem;
+  }
+}
